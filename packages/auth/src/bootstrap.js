@@ -16,6 +16,7 @@ const mount = (el, { defaultHistory, onNavigate, initialPath }) => {
 
   return {
     onParentNavigate({ pathname: nextPathName }) {
+      console.log({ nextPathName });
       const { pathname } = history.location;
       if (pathname !== nextPathName) history.push(nextPathName);
     },
@@ -23,7 +24,7 @@ const mount = (el, { defaultHistory, onNavigate, initialPath }) => {
 };
 
 if (process.env.NODE_ENV === "development") {
-  const el = document.querySelector("#dev-marketing-root");
+  const el = document.querySelector("#dev-auth-root");
   if (el)
     mount(el, {
       defaultHistory: createBrowserHistory(), // when we are in isolation we are going to use browser history instead of memory history,
