@@ -23,7 +23,10 @@ export default () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
 
   useEffect(() => {
-    if (isSignedIn) history.push("/dashboard");
+    if (isSignedIn) {
+      console.log("pushing to dashboard");
+      history.push("/dashboard");
+    }
   }, [isSignedIn]);
 
   const onSignOut = () => {
@@ -38,9 +41,15 @@ export default () => {
           <Suspense fallback={<Progress />}>
             <Switch>
               <Route path="/auth">
-                <AuthLazy onSignIn={() => setIsSignedIn(true)} />
+                <AuthLazy
+                  onSignIn={() => {
+                    console.log("signed in");
+                    setIsSignedIn(true);
+                  }}
+                />
               </Route>
               <Route path="/dashboard">
+                <h2>Dashboard</h2>
                 {!isSignedIn && <Redirect to="/" />}
                 <DashboardLazy />
               </Route>
