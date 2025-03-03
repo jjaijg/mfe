@@ -7,7 +7,7 @@ const mount = (el) => {
 };
 
 if (process.env.NODE_ENV === "development") {
-  const el = document.querySelector("#dev-dashboard-root");
+  const el = document.querySelector("#dev-dashboard-root"); //vue adashboar
   if (el) mount(el);
 }
 
