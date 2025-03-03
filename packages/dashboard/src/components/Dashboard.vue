@@ -628,7 +628,7 @@ $footerBgColor: #ffffff;
       i {
         font-size: 18px;
         vertical-align: middle;
-        margin-right: 0.5em;
+        margin-right: 0.6em;
       }
 
       .count {
